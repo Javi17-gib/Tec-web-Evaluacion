@@ -229,6 +229,39 @@
   <!-- Index js -->
   <script src="{{ asset ('/admin/assets/js/index.js') }}"></script>
 
-  
+  <style>
+    /* Aplica solo al modal específico (por ID) */
+    #modalAgregar .modal-content {
+        background-color: #1e1e2f; /* Fondo oscuro elegante */
+        color: #fff; /* Texto blanco */
+        border: 1px solid #444;
+    }
+
+    #modalAgregar .card-header {
+        background-color: #27293d; /* Fondo más oscuro para el header */
+        color: #fff;
+        border-bottom: 1px solid #444;
+    }
+
+    #modalAgregar .form-control {
+        background-color: #2a2a3b;
+        color: #fff;
+        border: 1px solid #555;
+    }
+
+    #modalAgregar .form-control::placeholder {
+        color: #ccc;
+    }
+
+    #modalAgregar .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+    #modalAgregar .btn-primary:hover {
+        background-color: #0069d9;
+    }
+</style>
+
 </body>
 </html>

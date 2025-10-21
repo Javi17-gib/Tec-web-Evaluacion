@@ -12,12 +12,16 @@ class Asignacion extends Model
     protected $table = 'asignaciones';
 
     protected $fillable = [
-        'usuario_id',
-        'dispositivo_id',
-        'fecha_asignacion',
-        'fecha_devolucion',
-        'observaciones',
+    'usuario_id',
+    'dispositivo_id',
+    'fecha_asignacion',
+    'fecha_devolucion',
+    'motivo',
+    'responsable_entrega',
+    'responsable_recibe',
+    'activo',
     ];
+
 
     // Relaciones
     public function usuario()

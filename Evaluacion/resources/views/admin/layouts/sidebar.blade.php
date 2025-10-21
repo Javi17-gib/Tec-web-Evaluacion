@@ -24,10 +24,19 @@
       </li>
 
       <li>
-        <a href="forms.html">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Dispositivos</span>
+        <a href="{{ route('dispositivos.index') }}">
+          <i class="zmdi zmdi-format-list-bulleted"></i>
+          <span>Dispositivos</span>
         </a>
       </li>
+
+      <li>
+        <a href="{{ route('asignaciones.index') }}">
+          <i class="zmdi zmdi-format-list-bulleted"></i>
+          <span>Asignaciones de Dispositivos</span>
+        </a>
+      </li>
+
 
       <!--<li>
         <a href="tables.html">

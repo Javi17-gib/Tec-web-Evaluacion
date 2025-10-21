@@ -14,9 +14,9 @@ class UserSeeder extends Seeder
             'nombre' => 'Javier',
             'email' => 'javier@jvcompany.com',
             'telefono' => '123456789',
-            'puesto' => 'Trabajador',
+            'puesto' => 'CEO',
             'activo' => true, // booleano
-            'password' => Hash::make('123'), // contraseña: 123
+            'password' => Hash::make('123456'), // contraseña: 123456
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -12,10 +12,10 @@ class Dispositivo extends Model
     protected $table = 'dispositivos';
 
     protected $fillable = [
-        'nombre',
+        'tipo',
         'marca',
         'modelo',
-        'numero_serie',
+        'serial',
         'estado',
         'observaciones',
     ];
