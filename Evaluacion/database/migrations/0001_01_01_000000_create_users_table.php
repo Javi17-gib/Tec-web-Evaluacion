@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');                        // nombre completo
-            $table->string('correo')->unique();             // email
+            $table->string('email')->unique();             // email
             $table->string('telefono', 30)->nullable();     // teléfono opcional
             $table->string('puesto', 100)->nullable();      // puesto del usuario
             $table->boolean('activo')->default(true);       // activo/inactivo
@@ -26,7 +26,7 @@ return new class extends Migration
 
         // Tabla password_reset_tokens
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('correo')->primary();
+            $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });

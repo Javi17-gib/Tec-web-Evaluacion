@@ -18,18 +18,18 @@
       </li>
 
       <li>
-        <a href="icons.html">
-          <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+        <a href="{{ route('usuarios.get') }}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Usuarios</span>
         </a>
       </li>
 
       <li>
         <a href="forms.html">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Dispositivos</span>
         </a>
       </li>
 
-      <li>
+      <!--<li>
         <a href="tables.html">
           <i class="zmdi zmdi-grid"></i> <span>Tables</span>
         </a>
@@ -63,7 +63,7 @@
       <li class="sidebar-header">LABELS</li>
       <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
       <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+      <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li> -->
 
     </ul>
    

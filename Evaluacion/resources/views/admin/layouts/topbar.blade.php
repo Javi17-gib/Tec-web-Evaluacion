@@ -30,32 +30,44 @@
           <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
           <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
           <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
-        </ul>
+      </ul>
     </li>
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="{{ asset ('/admin/assets/images/JAVIUser.png') }}" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile">
+          <img src="{{ asset('/admin/assets/images/JAVIUser.png') }}" class="img-circle" alt="user avatar">
+        </span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
-        <a href="javaScript:void();">
+        <a href="javascript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <div class="avatar">
+               <img class="align-self-start mr-3" src="{{ asset('/admin/assets/images/JAVIUser.png') }}" alt="user avatar">
+             </div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
-            <p class="user-subtitle">mccoy@example.com</p>
+              <h6 class="mt-2 user-title">{{ Auth::user()->nombre }}</h6>
+              <p class="user-subtitle">{{ Auth::user()->email }}</p>
             </div>
            </div>
-          </a>
-        </li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        </a>
+       </li>
+       <li class="dropdown-divider"></li>
+       <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+       <li class="dropdown-divider"></li>
+       <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+       <li class="dropdown-divider"></li>
+       <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+       <li class="dropdown-divider"></li>
+       <li class="dropdown-item">
+         <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+           <i class="icon-power mr-2"></i> Logout
+         </a>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+           @csrf
+         </form>
+       </li>
       </ul>
     </li>
   </ul>
