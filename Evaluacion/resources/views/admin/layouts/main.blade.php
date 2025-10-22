@@ -44,7 +44,10 @@
 
   <!--Start Dashboard Content-->
   <!--End Row-->
-	 @yield('contenido')
+  <div style="min-height: 80vh">
+      @yield('contenido')
+  </div>
+	 
 	<!--<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">

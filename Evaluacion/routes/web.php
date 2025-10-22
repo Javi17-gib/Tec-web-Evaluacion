@@ -14,31 +14,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Redirige al dashboard después del login
 Route::get('/home', function() {
     return redirect()->route('dashboard.home');
 })->name('home');
 
-// Rutas protegidas por login
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.home');
 
     Route::get('/usuarios', [UsuarioController::class, 'getUsuarios'])->name('usuarios.get');
     Route::post('/usuarios', [UsuarioController::class, 'createUsuarios'])->name('usuarios.create');
     Route::delete('/usuarios', [UsuarioController::class, 'deleteUsuarios'])->name('usuarios.delete');
+    
     Route::get('/dispositivos', [DispositivosController::class, 'getDispositivos'])->name('dispositivos.index');
     Route::post('/dispositivos', [DispositivosController::class, 'createDispositivo'])->name('dispositivos.store');
-     Route::get('/asignaciones', [AsignacionesController::class, 'index'])->name('asignaciones.index');
+    
+    Route::get('/asignaciones', [AsignacionesController::class, 'index'])->name('asignaciones.index');
     Route::post('/asignaciones', [AsignacionesController::class, 'store'])->name('asignaciones.store');
     Route::post('/asignaciones/devolver/{id}', [AsignacionesController::class, 'devolver'])->name('asignaciones.devolver');
-    Route::get('/carta-poder/{id}', [CartaPoderController::class, 'generar'])->middleware('auth');
+
+    // Generar carta poder desde una asignación
+    Route::get('/carta-poder/{id}', [CartaPoderController::class, 'generar'])->name('carta.generar');
     
 });
-
-
-
-
-
-
-
-

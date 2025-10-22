@@ -40,11 +40,16 @@
                 <td>{{ $item->activo ? 'Sí' : 'No' }}</td>
                 <td>
                     @if($item->activo)
-                    <form action="{{ route('asignaciones.devolver', $item->id) }}" method="POST">
+                    <form action="{{ route('asignaciones.devolver', $item->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         <button type="submit" class="btn btn-success btn-sm">Devolver</button>
                     </form>
                     @endif
+
+                    {{-- Botón para ver/generar la carta poder --}}
+                    <a href="{{ route('carta.generar', $item->id) }}" class="btn btn-warning btn-sm" target="_blank">
+                        Carta Poder
+                    </a>
                 </td>
             </tr>
             @endforeach

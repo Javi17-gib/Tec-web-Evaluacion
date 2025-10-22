@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,27 +14,22 @@ class CartaPoderController extends Controller
     {
         $asignacion = Asignacion::with(['usuario', 'dispositivo'])->findOrFail($asignacion_id);
 
-        // Generar QR
-        $codigoQR = QrCode::format('png')->size(200)->generate("Asignación ID: {$asignacion->id}");
+        // ✅ Generar QR en formato SVG (no requiere imagick)
+        $codigoQR = base64_encode(QrCode::format('svg')->size(200)->generate("Asignación ID: {$asignacion->id}"));
 
-        // Guardar el QR como archivo
-        $rutaQR = 'storage/qrs/qr_' . $asignacion->id . '.png';
-        file_put_contents(public_path($rutaQR), $codigoQR);
-
-        // Generar PDF
+        // Generar PDF directamente con el QR en base64
         $pdf = Pdf::loadView('pdf.carta_poder', [
             'asignacion' => $asignacion,
-            'qr' => $rutaQR
+            'qr' => $codigoQR
         ]);
 
         $rutaPDF = 'storage/cartas/carta_' . $asignacion->id . '.pdf';
         $pdf->save(public_path($rutaPDF));
 
-        // Guardar registro en BD
         CartaPoder::create([
             'asignacion_id' => $asignacion->id,
             'ruta_pdf' => $rutaPDF,
-            'codigo_qr' => $rutaQR,
+            'codigo_qr' => null,
             'generado_por' => auth()->id()
         ]);
 
